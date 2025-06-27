@@ -41,6 +41,7 @@ export default function Home() {
                     headers: {
                         "Content-Type": "application/json",
                     },
+                    mode: "cors",
                     credentials: "include",
                 });
                 if (!response.ok) throw new Error("Failed to fetch projects");
