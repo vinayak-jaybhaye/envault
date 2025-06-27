@@ -1,0 +1,10 @@
+fastapi
+uvicorn
+python-dotenv
+PyGithub
+python-multipart
+cryptography
+pydantic_settings
+python-jose
+httpx
+pydantic
