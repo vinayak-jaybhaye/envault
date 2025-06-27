@@ -40,17 +40,13 @@ export default function Home() {
                     method: "GET",
                     headers: {
                         "Content-Type": "application/json",
-                        Authorization: `Bearer ${localStorage.getItem("token")}`,
                     },
-                    credentials: "include", // Include cookies if needed
+                    credentials: "include",
                 });
                 if (!response.ok) throw new Error("Failed to fetch projects");
                 const data = await response.json();
                 setProjects(data);
                 console.log("Fetched projects:", data);
-                // if (data.length === 0 || data[0].name !== "passphrase") {
-                //      navigate("/settings");
-                // }
                 setProjects((prev) => prev.slice(1));
 
             } catch (error) {
@@ -182,7 +178,7 @@ export default function Home() {
 
     const handleCreateProject = async () => {
         try {
-            const response = await fetch(`${API_URL}/passphrase-exists`,{
+            const response = await fetch(`${API_URL}/passphrase-exists`, {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json",

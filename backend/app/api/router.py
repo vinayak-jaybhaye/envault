@@ -171,7 +171,7 @@ async def login(password: str = Form(...)):
             key="access_token",
             value=access_token,
             httponly=True,
-            secure=False,           # True in production
+            secure=True,           # True in production
             samesite="lax",
             max_age=900            # 15 minutes
         )

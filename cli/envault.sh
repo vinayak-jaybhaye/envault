@@ -5,6 +5,12 @@
 # Download: ./envvault.sh download <api_url> <passphrase> <project_name>
 # Health:   ./envvault.sh health <api_url>
 
+# If script is on github, you can use the following commands:
+# Upload:    bash <(curl -s https://raw.githubusercontent.com/<github-username>/envault/main/cli/envault.sh) upload <api_url> <passphrase> <project_name> .env
+# Download:  bash <(curl -s https://raw.githubusercontent.com/<github-username>/envault/main/cli/envault.sh) download <api_url> <passphrase> <project_name>
+# Health:    bash <(curl -s https://raw.githubusercontent.com/<github-username>/envault/main/cli/envault.sh) health <api_url>
+
+
 upload() {
   API_URL="$1"
   PASSPHRASE="$2"
