@@ -22,7 +22,7 @@ def get_passphrase_file() -> str | None:
     try:
         decrypted_data = pull_file_data("passphrase")
         print("passphrase.env.enc file found.")
-        return decrypted_data.decode("utf-8")
+        return decrypted_data
     except Exception:
         print("No passphrase.env.enc found in the repo.")
         return None
