@@ -1,15 +1,15 @@
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from fastapi import Request, HTTPException
 from jose import jwt, JWTError
 from app.config import settings
 
-SECRET_KEY = settings.SECRET_KEY  # Put this in .env
+SECRET_KEY = settings.SECRET_KEY
 ALGORITHM = "HS256"
 
 def create_access_token(data: dict, expires_minutes: int = 60) -> str:
     """Create a JWT access token."""
     to_encode = data.copy()
-    expire = datetime.utcnow() + timedelta(minutes=expires_minutes)
+    expire = datetime.now(timezone.utc) + timedelta(minutes=expires_minutes)
     to_encode.update({"exp": expire})
     return jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)
 
