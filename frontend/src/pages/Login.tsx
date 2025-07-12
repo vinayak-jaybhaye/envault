@@ -11,7 +11,7 @@ function Login() {
 
   useEffect(() => {
     // Redirect to home if already authenticated
-   if (!loading && isAuthenticated) {
+    if (!loading && isAuthenticated) {
       navigate('/');
     }
   }, [isAuthenticated, authLoading]);
@@ -55,9 +55,12 @@ function Login() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100 px-4">
-      <div className="bg-white p-6 rounded-lg shadow-md w-full max-w-sm">
-        <h1 className="text-2xl font-bold mb-4 text-center">Login</h1>
+    <div className="min-h-screen flex items-center justify-center bg-gray-900 px-4">
+      <form className="bg-gray-600 p-6 rounded-lg shadow-2xl w-full max-w-sm" onSubmit={(e) => {
+        e.preventDefault();
+        handleLogin()
+      }} >
+        <h1 className="text-2xl text-white font-bold mb-4 text-center">Login to EnVault</h1>
         <input
           type="password"
           placeholder="Enter password"
@@ -68,14 +71,15 @@ function Login() {
         <button
           onClick={handleLogin}
           disabled={loading}
+          type='submit'
           className="w-full bg-gray-900 text-white py-2 rounded-md hover:bg-gray-800 transition disabled:opacity-50"
         >
           {loading ? "Logging in..." : "Login"}
         </button>
-        <p className="text-sm text-gray-500 text-center mt-4">
-          Use the password <code className="font-mono">admin</code> to log in.
+        <p className="text-sm text-white text-center mt-4">
+          Please enter the password to access the application.
         </p>
-      </div>
+      </form>
     </div>
   );
 }

@@ -2,7 +2,7 @@ import Editor from "@monaco-editor/react";
 
 export default function MonacoEditor({content, onChange}: {content: string, onChange:any}) {
   return (
-    <div className="p-4">
+    <div>
       <Editor
         height="400px"
         defaultLanguage="ini"

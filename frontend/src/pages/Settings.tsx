@@ -23,7 +23,7 @@ function Settings() {
   useEffect(() => {
     const checkPassphrase = async () => {
       try {
-        const response = await fetch(`${API_URL}/passphrase-exists`,{
+        const response = await fetch(`${API_URL}/passphrase-exists`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
@@ -99,7 +99,7 @@ function Settings() {
       const formData = new FormData();
       formData.append("old_passphrase", oldPassword);
       formData.append("new_passphrase", newPassword);
-      console.log(formData)
+      // console.log(formData)
       const response = await fetch(`${API_URL}/update-passphrase`, {
         method: 'POST',
         body: formData,
@@ -124,7 +124,7 @@ function Settings() {
   };
 
   return (
-    <div className="max-w-md mx-auto mt-10 p-6 bg-white rounded shadow">
+    <div className="max-w-md mx-auto mt-24 p-6 bg-gray-400 rounded shadow text-black">
       <h1 className="text-2xl font-bold mb-6 text-center">Settings</h1>
 
       {loading ? (
@@ -177,14 +177,14 @@ function Settings() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 rounded transition-colors"
+              className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 rounded transition-colors cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {passphraseExists ? "Change Password" : "Create Password"}
             </button>
             <button
               onClick={() => navigate("/")}
               disabled={loading}
-              className="w-full bg-gray-600 hover:bg-gray-700 text-white font-semibold py-2 rounded transition-colors"
+              className="w-full bg-gray-600 hover:bg-gray-700 text-white font-semibold py-2 rounded transition-colors cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
             >
               Cancel
             </button>
