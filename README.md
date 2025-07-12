@@ -50,7 +50,47 @@ envault/
 ```
 
 ---
+## Running Envault with Docker Compose
 
+### Prerequisites
+
+- Install [Docker](https://docs.docker.com/get-docker/)
+- Install [Docker Compose](https://docs.docker.com/compose/install/) (Docker Desktop includes it)
+
+### Steps
+
+1. **Copy the example environment file**
+
+   The project includes a `.env.sample` file in the root directory. Create your own `.env` file by copying it:
+
+   ```bash
+   cp .env.sample .env
+   ```
+
+2. **Edit .env**
+
+    Open the `.env` file you created and fill in your secrets
+
+
+3. **Build and start the containers**
+
+    Run this command in the root folder to build images and start the containers:
+
+    ```bash
+    docker compose up --build
+    ```
+
+4. **Access the services**
+    - Backend API (Fastapi) : http://localhost:8000
+    - Frontend UI (React) : http://localhost:3000
+
+5. **Stop the Containers**
+    ```bash
+    docker compose down 
+    ```
+---
+
+## Running EnVault without Docker Compose
 ## Backend Setup
 
 ### 1. Environment Variables (`.env`)
